@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 12 Feb 2025 pada 08.33
--- Versi server: 10.4.32-MariaDB
--- Versi PHP: 8.2.12
+-- Host: localhost:3306
+-- Generation Time: Feb 20, 2025 at 07:18 PM
+-- Server version: 8.0.30
+-- PHP Version: 8.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,46 +24,51 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aghniya_album`
+-- Table structure for table `aghniya_album`
 --
 
 CREATE TABLE `aghniya_album` (
-  `aghniya_album_id` int(11) NOT NULL,
-  `aghniya_nama_album` varchar(255) NOT NULL,
-  `aghniya_deskripsi` text NOT NULL,
+  `aghniya_album_id` int NOT NULL,
+  `aghniya_nama_album` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `aghniya_deskripsi` text COLLATE utf8mb4_general_ci NOT NULL,
   `aghniya_tanggal_dibuat` date NOT NULL,
-  `aghniya_user_id` int(11) NOT NULL
+  `aghniya_user_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `aghniya_album`
+-- Dumping data for table `aghniya_album`
 --
 
 INSERT INTO `aghniya_album` (`aghniya_album_id`, `aghniya_nama_album`, `aghniya_deskripsi`, `aghniya_tanggal_dibuat`, `aghniya_user_id`) VALUES
 (1, 'abcde', 'aaabbbcccdddeee', '2025-01-01', 1),
 (2, 'uiiaiuiia', 'uiaioa', '2025-01-16', 1),
-(5, 'punya dilalalala', ' punya dilaaaaaaaaaaa', '2025-01-22', 3),
+(5, 'punya dila', 'punya dilaaaaaaaaaaa', '2025-01-22', 3),
 (10, 'lele`s', ' leleeeeeeeeeee', '2025-02-06', 8),
-(12, 'wow', 'wow', '2025-02-12', 3);
+(12, 'aaa', 'aaaaaaaaabbccc', '2025-02-12', 3),
+(15, 'a', 'a', '2025-02-20', 3),
+(16, 'b', 'b', '2025-02-20', 3),
+(17, 'c', 'c', '2025-02-20', 3),
+(18, 'd', 'd', '2025-02-20', 3),
+(21, 'y', 'y', '2025-02-20', 3);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aghniya_foto`
+-- Table structure for table `aghniya_foto`
 --
 
 CREATE TABLE `aghniya_foto` (
-  `aghniya_foto_id` int(11) NOT NULL,
-  `aghniya_judul_foto` varchar(255) NOT NULL,
-  `aghniya_deskripsi_foto` text NOT NULL,
+  `aghniya_foto_id` int NOT NULL,
+  `aghniya_judul_foto` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `aghniya_deskripsi_foto` text COLLATE utf8mb4_general_ci NOT NULL,
   `aghniya_tanggal_unggah` date NOT NULL,
-  `aghniya_lokasi_file` varchar(255) NOT NULL,
-  `aghniya_album_id` int(11) NOT NULL,
-  `aghniya_user_id` int(11) NOT NULL
+  `aghniya_lokasi_file` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `aghniya_album_id` int NOT NULL,
+  `aghniya_user_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `aghniya_foto`
+-- Dumping data for table `aghniya_foto`
 --
 
 INSERT INTO `aghniya_foto` (`aghniya_foto_id`, `aghniya_judul_foto`, `aghniya_deskripsi_foto`, `aghniya_tanggal_unggah`, `aghniya_lokasi_file`, `aghniya_album_id`, `aghniya_user_id`) VALUES
@@ -77,24 +82,25 @@ INSERT INTO `aghniya_foto` (`aghniya_foto_id`, `aghniya_judul_foto`, `aghniya_de
 (12, 'mweheheh', 'MWEHEHEHE', '2025-01-22', 'public/mweheheh_1.jpg', 2, 1),
 (22, 'pkl', 'timeline pkl', '2025-01-30', 'public/pkl_3.png', 5, 3),
 (27, 'rkw', 'rurukakawawa', '2025-02-06', 'public/rkw_8.jpg', 10, 8),
-(29, 'gelombang', 'gelombang', '2025-02-12', 'public/gelombang_3.png', 5, 3);
+(29, 'cek', 'cek', '2025-02-12', 'public/cek_3.png', 12, 3),
+(35, 'e', 'e', '2025-02-20', 'public/e_3.jpg', 12, 3);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aghniya_komentar_foto`
+-- Table structure for table `aghniya_komentar_foto`
 --
 
 CREATE TABLE `aghniya_komentar_foto` (
-  `aghniya_komentar_id` int(11) NOT NULL,
-  `aghniya_foto_id` int(11) NOT NULL,
-  `aghniya_user_id` int(11) NOT NULL,
-  `aghniya_isi_komentar` text NOT NULL,
+  `aghniya_komentar_id` int NOT NULL,
+  `aghniya_foto_id` int NOT NULL,
+  `aghniya_user_id` int NOT NULL,
+  `aghniya_isi_komentar` text COLLATE utf8mb4_general_ci NOT NULL,
   `aghniya_tanggal_komentar` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `aghniya_komentar_foto`
+-- Dumping data for table `aghniya_komentar_foto`
 --
 
 INSERT INTO `aghniya_komentar_foto` (`aghniya_komentar_id`, `aghniya_foto_id`, `aghniya_user_id`, `aghniya_isi_komentar`, `aghniya_tanggal_komentar`) VALUES
@@ -134,36 +140,52 @@ INSERT INTO `aghniya_komentar_foto` (`aghniya_komentar_id`, `aghniya_foto_id`, `
 (34, 11, 1, 'uiiia\r\n', '2025-02-06'),
 (35, 11, 3, 'o\r\n', '2025-02-06'),
 (37, 12, 1, 'wowow', '2025-02-06'),
-(38, 22, 1, 'byk yhh', '2025-02-06');
+(38, 22, 1, 'byk yhh', '2025-02-06'),
+(41, 10, 3, 'y', '2025-02-12'),
+(42, 29, 3, 'aaaaaaaaaaaa', '2025-02-12'),
+(43, 29, 3, 'okokok', '2025-02-12'),
+(44, 7, 3, 'oy', '2025-02-18'),
+(45, 11, 3, 'oyyyyyyyyyyyyooyoyoyooy', '2025-02-18'),
+(46, 11, 3, '', '2025-02-18'),
+(47, 11, 3, 'uw', '2025-02-18'),
+(48, 11, 3, 'pow', '2025-02-18'),
+(49, 11, 3, 'ayayaya', '2025-02-18'),
+(50, 11, 3, 'hiw', '2025-02-18'),
+(51, 29, 3, 'uwuw', '2025-02-18'),
+(54, 6, 10, 'hjkl', '2025-02-18'),
+(55, 11, 10, 'y', '2025-02-18'),
+(60, 7, 10, 'yoy', '2025-02-18'),
+(73, 1, 10, 'ooo', '2025-02-18'),
+(74, 11, 3, 'ooo', '2025-02-18'),
+(75, 11, 3, 'pop\r\n', '2025-02-18'),
+(76, 11, 3, 'ow', '2025-02-18'),
+(77, 11, 3, 'pow', '2025-02-18'),
+(78, 7, 4, 'yay', '2025-02-19'),
+(79, 35, 3, 'ok\r\n', '2025-02-21'),
+(80, 7, 1, 'wuw', '2025-02-21');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aghniya_like_foto`
+-- Table structure for table `aghniya_like_foto`
 --
 
 CREATE TABLE `aghniya_like_foto` (
-  `aghniya_like_id` int(11) NOT NULL,
-  `aghniya_foto_id` int(11) NOT NULL,
-  `aghniya_user_id` int(11) NOT NULL,
+  `aghniya_like_id` int NOT NULL,
+  `aghniya_foto_id` int NOT NULL,
+  `aghniya_user_id` int NOT NULL,
   `aghniya_tanggal_like` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `aghniya_like_foto`
+-- Dumping data for table `aghniya_like_foto`
 --
 
 INSERT INTO `aghniya_like_foto` (`aghniya_like_id`, `aghniya_foto_id`, `aghniya_user_id`, `aghniya_tanggal_like`) VALUES
 (2, 6, 1, '2025-01-14'),
-(9, 7, 3, '2025-01-22'),
 (12, 1, 3, '2025-01-22'),
-(22, 8, 3, '2025-01-22'),
-(40, 6, 3, '2025-01-30'),
 (42, 9, 3, '2025-01-30'),
-(43, 10, 3, '2025-01-30'),
 (47, 8, 1, '2025-01-30'),
-(48, 11, 3, '2025-01-30'),
-(49, 12, 3, '2025-01-30'),
 (51, 12, 1, '2025-01-30'),
 (52, 22, 1, '2025-01-30'),
 (53, 1, 1, '2025-01-30'),
@@ -173,64 +195,99 @@ INSERT INTO `aghniya_like_foto` (`aghniya_like_id`, `aghniya_foto_id`, `aghniya_
 (59, 10, 1, '2025-02-05'),
 (60, 22, 3, '2025-02-05'),
 (61, 10, 9, '2025-02-06'),
-(63, 29, 11, '2025-02-12');
+(70, 11, 10, '2025-02-18'),
+(74, 1, 10, '2025-02-18'),
+(97, 6, 10, '2025-02-18'),
+(107, 29, 4, '2025-02-18'),
+(112, 12, 3, '2025-02-18'),
+(117, 27, 3, '2025-02-18'),
+(118, 29, 3, '2025-02-18'),
+(119, 7, 3, '2025-02-18'),
+(120, 10, 3, '2025-02-18'),
+(121, 8, 3, '2025-02-18'),
+(122, 11, 3, '2025-02-18'),
+(133, 6, 4, '2025-02-19'),
+(134, 1, 4, '2025-02-19'),
+(135, 7, 4, '2025-02-19'),
+(136, 29, 1, '2025-02-20'),
+(137, 6, 3, '2025-02-21');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aghniya_notifikasi`
+-- Table structure for table `aghniya_notifikasi`
 --
 
 CREATE TABLE `aghniya_notifikasi` (
-  `aghniya_notifikasi_id` int(11) NOT NULL,
-  `aghniya_foto_id` int(11) NOT NULL,
-  `aghniya_komentar_id` int(11) NOT NULL,
-  `aghniya_user_id` int(11) NOT NULL,
+  `aghniya_notifikasi_id` int NOT NULL,
+  `aghniya_foto_id` int NOT NULL,
+  `aghniya_komentar_id` int NOT NULL,
+  `aghniya_user_id` int NOT NULL,
   `created_at` date NOT NULL,
-  `aghniya_user_photo_id` int(11) NOT NULL,
-  `is_read` int(11) NOT NULL,
-  `aghniya_like_id` int(11) NOT NULL,
-  `is_notif` int(11) NOT NULL
+  `aghniya_user_photo_id` int NOT NULL,
+  `is_read` int NOT NULL,
+  `aghniya_like_id` int NOT NULL,
+  `is_notif` int NOT NULL,
+  `mark_read` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `aghniya_notifikasi`
+-- Dumping data for table `aghniya_notifikasi`
 --
 
-INSERT INTO `aghniya_notifikasi` (`aghniya_notifikasi_id`, `aghniya_foto_id`, `aghniya_komentar_id`, `aghniya_user_id`, `created_at`, `aghniya_user_photo_id`, `is_read`, `aghniya_like_id`, `is_notif`) VALUES
-(27, 8, 0, 1, '2025-01-30', 1, 1, 47, 0),
-(28, 11, 0, 3, '2025-01-30', 3, 1, 48, 0),
-(29, 12, 0, 3, '2025-01-30', 1, 1, 49, 0),
-(31, 12, 0, 1, '2025-01-30', 1, 1, 51, 0),
-(32, 22, 0, 1, '2025-01-30', 3, 0, 52, 1),
-(33, 1, 0, 1, '2025-01-30', 1, 1, 53, 1),
-(35, 9, 0, 1, '2025-01-30', 1, 1, 56, 1),
-(36, 7, 0, 1, '2025-01-30', 1, 1, 57, 1),
-(37, 11, 0, 1, '2025-01-30', 3, 0, 58, 1),
-(39, 10, 28, 1, '2025-02-05', 3, 0, 0, 1),
-(40, 11, 29, 3, '2025-02-05', 3, 0, 0, 1),
-(41, 22, 0, 3, '2025-02-05', 3, 0, 60, 1),
-(42, 22, 31, 3, '2025-02-05', 3, 0, 0, 1),
-(43, 1, 32, 3, '2025-02-06', 1, 0, 0, 1),
-(45, 11, 34, 1, '2025-02-06', 3, 0, 0, 1),
-(46, 11, 35, 3, '2025-02-06', 3, 0, 0, 1),
-(48, 12, 37, 1, '2025-02-06', 1, 0, 0, 1),
-(49, 22, 38, 1, '2025-02-06', 3, 0, 0, 1),
-(53, 29, 0, 11, '2025-02-12', 3, 0, 63, 1);
+INSERT INTO `aghniya_notifikasi` (`aghniya_notifikasi_id`, `aghniya_foto_id`, `aghniya_komentar_id`, `aghniya_user_id`, `created_at`, `aghniya_user_photo_id`, `is_read`, `aghniya_like_id`, `is_notif`, `mark_read`) VALUES
+(27, 8, 0, 1, '2025-01-30', 1, 1, 47, 1, 1),
+(31, 12, 0, 1, '2025-01-30', 1, 1, 51, 0, 1),
+(32, 22, 0, 1, '2025-01-30', 3, 1, 52, 1, 1),
+(33, 1, 0, 1, '2025-01-30', 1, 1, 53, 1, 1),
+(35, 9, 0, 1, '2025-01-30', 1, 1, 56, 1, 1),
+(36, 7, 0, 1, '2025-01-30', 1, 1, 57, 1, 1),
+(37, 11, 0, 1, '2025-01-30', 3, 1, 58, 1, 1),
+(39, 10, 28, 1, '2025-02-05', 3, 1, 0, 1, 1),
+(41, 22, 0, 3, '2025-02-05', 3, 1, 60, 1, 1),
+(42, 22, 31, 3, '2025-02-05', 3, 1, 0, 1, 1),
+(43, 1, 32, 3, '2025-02-06', 1, 1, 0, 1, 1),
+(45, 11, 34, 1, '2025-02-06', 3, 1, 0, 1, 1),
+(48, 12, 37, 1, '2025-02-06', 1, 1, 0, 1, 1),
+(49, 22, 38, 1, '2025-02-06', 3, 1, 0, 1, 1),
+(50, 10, 0, 9, '2025-02-06', 3, 1, 61, 1, 1),
+(73, 11, 55, 10, '2025-02-18', 3, 1, 0, 1, 1),
+(74, 11, 0, 10, '2025-02-18', 3, 1, 70, 1, 1),
+(78, 1, 0, 10, '2025-02-18', 1, 1, 74, 1, 1),
+(101, 6, 0, 10, '2025-02-18', 1, 1, 97, 1, 1),
+(124, 1, 73, 10, '2025-02-18', 1, 1, 0, 1, 1),
+(125, 29, 0, 4, '2025-02-18', 3, 1, 107, 1, 1),
+(130, 12, 0, 3, '2025-02-18', 1, 1, 112, 1, 1),
+(135, 27, 0, 3, '2025-02-18', 8, 0, 117, 0, 0),
+(136, 29, 0, 3, '2025-02-18', 3, 1, 118, 1, 1),
+(137, 7, 0, 3, '2025-02-18', 1, 1, 119, 1, 1),
+(138, 10, 0, 3, '2025-02-18', 3, 1, 120, 1, 1),
+(139, 8, 0, 3, '2025-02-18', 1, 1, 121, 1, 1),
+(142, 11, 0, 3, '2025-02-18', 3, 1, 122, 1, 1),
+(143, 11, 76, 3, '2025-02-18', 3, 1, 0, 1, 1),
+(144, 11, 77, 3, '2025-02-18', 3, 1, 0, 1, 1),
+(155, 6, 0, 4, '2025-02-19', 4, 0, 133, 1, 0),
+(156, 1, 0, 4, '2025-02-19', 1, 1, 134, 0, 1),
+(157, 7, 0, 4, '2025-02-19', 1, 1, 135, 0, 1),
+(158, 7, 78, 4, '2025-02-19', 1, 1, 0, 0, 1),
+(159, 29, 0, 1, '2025-02-20', 3, 1, 136, 1, 1),
+(160, 35, 79, 3, '2025-02-21', 3, 1, 0, 1, 1),
+(161, 6, 0, 3, '2025-02-21', 1, 1, 137, 1, 1),
+(162, 7, 80, 1, '2025-02-21', 1, 1, 0, 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aghniya_role`
+-- Table structure for table `aghniya_role`
 --
 
 CREATE TABLE `aghniya_role` (
-  `aghniya_role_id` int(11) NOT NULL,
-  `aghniya_role` varchar(225) NOT NULL
+  `aghniya_role_id` int NOT NULL,
+  `aghniya_role` varchar(225) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `aghniya_role`
+-- Dumping data for table `aghniya_role`
 --
 
 INSERT INTO `aghniya_role` (`aghniya_role_id`, `aghniya_role`) VALUES
@@ -240,23 +297,23 @@ INSERT INTO `aghniya_role` (`aghniya_role_id`, `aghniya_role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aghniya_user`
+-- Table structure for table `aghniya_user`
 --
 
 CREATE TABLE `aghniya_user` (
-  `aghniya_user_id` int(11) NOT NULL,
-  `aghniya_username` varchar(255) NOT NULL,
-  `aghniya_password` varchar(225) NOT NULL,
-  `aghniya_email` varchar(255) NOT NULL,
-  `aghniya_nama_lengkap` varchar(255) NOT NULL,
-  `aghniya_alamat` text NOT NULL,
-  `aghniya_role_id` int(11) NOT NULL,
-  `aghniya_verifikasi` int(11) NOT NULL,
-  `aghniya_foto_profile` varchar(255) DEFAULT NULL
+  `aghniya_user_id` int NOT NULL,
+  `aghniya_username` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `aghniya_password` varchar(225) COLLATE utf8mb4_general_ci NOT NULL,
+  `aghniya_email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `aghniya_nama_lengkap` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `aghniya_alamat` text COLLATE utf8mb4_general_ci NOT NULL,
+  `aghniya_role_id` int NOT NULL,
+  `aghniya_verifikasi` int NOT NULL,
+  `aghniya_foto_profile` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `aghniya_user`
+-- Dumping data for table `aghniya_user`
 --
 
 INSERT INTO `aghniya_user` (`aghniya_user_id`, `aghniya_username`, `aghniya_password`, `aghniya_email`, `aghniya_nama_lengkap`, `aghniya_alamat`, `aghniya_role_id`, `aghniya_verifikasi`, `aghniya_foto_profile`) VALUES
@@ -268,22 +325,21 @@ INSERT INTO `aghniya_user` (`aghniya_user_id`, `aghniya_username`, `aghniya_pass
 (7, 'mamal', '743f3cb228516818298313d422b0ffdf', 'sasa@gmail.com', 'mamal', 'aaaa', 2, 0, ''),
 (8, 'kyamalia', '4a3be234543f00d86378c0d6d40d8ecc', 'sasa@gmail.com', 'kyamalia', 'jl abcde', 2, 1, NULL),
 (9, 'amel', 'da0e22de18e3fbe1e96bdc882b912ea4', 'ica@gmail.com', 'amel', 'amel', 2, 1, NULL),
-(10, 'ica', '7e0a68d81667b2b0ecf8eaf99d6d52c5', 'ica@gmail.com', 'ica', 'YAYAYAYA', 2, 1, NULL),
-(11, 'caca', 'd2104a400c7f629a197f33bb33fe80c0', 'ica@gmail.com', 'caca', 'caca', 2, 1, NULL);
+(10, 'ambar2555', 'a7caf003ad647f5f6fcb76bf9e306430', 'dhiyyaambar@gmail.com', 'dhiyyaambarrrr', 'haji haris', 2, 1, '');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `aghniya_album`
+-- Indexes for table `aghniya_album`
 --
 ALTER TABLE `aghniya_album`
   ADD PRIMARY KEY (`aghniya_album_id`),
   ADD KEY `idx_aghniya_user_id` (`aghniya_user_id`);
 
 --
--- Indeks untuk tabel `aghniya_foto`
+-- Indexes for table `aghniya_foto`
 --
 ALTER TABLE `aghniya_foto`
   ADD PRIMARY KEY (`aghniya_foto_id`),
@@ -291,7 +347,7 @@ ALTER TABLE `aghniya_foto`
   ADD KEY `idx_user_id` (`aghniya_user_id`);
 
 --
--- Indeks untuk tabel `aghniya_komentar_foto`
+-- Indexes for table `aghniya_komentar_foto`
 --
 ALTER TABLE `aghniya_komentar_foto`
   ADD PRIMARY KEY (`aghniya_komentar_id`),
@@ -299,7 +355,7 @@ ALTER TABLE `aghniya_komentar_foto`
   ADD KEY `idx_user_id` (`aghniya_user_id`);
 
 --
--- Indeks untuk tabel `aghniya_like_foto`
+-- Indexes for table `aghniya_like_foto`
 --
 ALTER TABLE `aghniya_like_foto`
   ADD PRIMARY KEY (`aghniya_like_id`),
@@ -307,7 +363,7 @@ ALTER TABLE `aghniya_like_foto`
   ADD KEY `idx_user_id` (`aghniya_user_id`);
 
 --
--- Indeks untuk tabel `aghniya_notifikasi`
+-- Indexes for table `aghniya_notifikasi`
 --
 ALTER TABLE `aghniya_notifikasi`
   ADD PRIMARY KEY (`aghniya_notifikasi_id`),
@@ -317,13 +373,13 @@ ALTER TABLE `aghniya_notifikasi`
   ADD KEY `idx_komentar_id` (`aghniya_komentar_id`);
 
 --
--- Indeks untuk tabel `aghniya_role`
+-- Indexes for table `aghniya_role`
 --
 ALTER TABLE `aghniya_role`
   ADD PRIMARY KEY (`aghniya_role_id`);
 
 --
--- Indeks untuk tabel `aghniya_user`
+-- Indexes for table `aghniya_user`
 --
 ALTER TABLE `aghniya_user`
   ADD PRIMARY KEY (`aghniya_user_id`),
@@ -331,84 +387,84 @@ ALTER TABLE `aghniya_user`
   ADD KEY `idx_aghniya_role_id` (`aghniya_role_id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `aghniya_album`
+-- AUTO_INCREMENT for table `aghniya_album`
 --
 ALTER TABLE `aghniya_album`
-  MODIFY `aghniya_album_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `aghniya_album_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT untuk tabel `aghniya_foto`
+-- AUTO_INCREMENT for table `aghniya_foto`
 --
 ALTER TABLE `aghniya_foto`
-  MODIFY `aghniya_foto_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `aghniya_foto_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT untuk tabel `aghniya_komentar_foto`
+-- AUTO_INCREMENT for table `aghniya_komentar_foto`
 --
 ALTER TABLE `aghniya_komentar_foto`
-  MODIFY `aghniya_komentar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `aghniya_komentar_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
--- AUTO_INCREMENT untuk tabel `aghniya_like_foto`
+-- AUTO_INCREMENT for table `aghniya_like_foto`
 --
 ALTER TABLE `aghniya_like_foto`
-  MODIFY `aghniya_like_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `aghniya_like_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
 
 --
--- AUTO_INCREMENT untuk tabel `aghniya_notifikasi`
+-- AUTO_INCREMENT for table `aghniya_notifikasi`
 --
 ALTER TABLE `aghniya_notifikasi`
-  MODIFY `aghniya_notifikasi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `aghniya_notifikasi_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
 
 --
--- AUTO_INCREMENT untuk tabel `aghniya_role`
+-- AUTO_INCREMENT for table `aghniya_role`
 --
 ALTER TABLE `aghniya_role`
-  MODIFY `aghniya_role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `aghniya_role_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `aghniya_user`
+-- AUTO_INCREMENT for table `aghniya_user`
 --
 ALTER TABLE `aghniya_user`
-  MODIFY `aghniya_user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `aghniya_user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `aghniya_album`
+-- Constraints for table `aghniya_album`
 --
 ALTER TABLE `aghniya_album`
   ADD CONSTRAINT `fk_user_id` FOREIGN KEY (`aghniya_user_id`) REFERENCES `aghniya_user` (`aghniya_user_id`);
 
 --
--- Ketidakleluasaan untuk tabel `aghniya_foto`
+-- Constraints for table `aghniya_foto`
 --
 ALTER TABLE `aghniya_foto`
   ADD CONSTRAINT `fk_album_id` FOREIGN KEY (`aghniya_album_id`) REFERENCES `aghniya_album` (`aghniya_album_id`),
   ADD CONSTRAINT `fk_users_id` FOREIGN KEY (`aghniya_user_id`) REFERENCES `aghniya_user` (`aghniya_user_id`);
 
 --
--- Ketidakleluasaan untuk tabel `aghniya_komentar_foto`
+-- Constraints for table `aghniya_komentar_foto`
 --
 ALTER TABLE `aghniya_komentar_foto`
   ADD CONSTRAINT `fk_komentar_id` FOREIGN KEY (`aghniya_foto_id`) REFERENCES `aghniya_foto` (`aghniya_foto_id`),
   ADD CONSTRAINT `fk_usersss_id` FOREIGN KEY (`aghniya_user_id`) REFERENCES `aghniya_user` (`aghniya_user_id`);
 
 --
--- Ketidakleluasaan untuk tabel `aghniya_like_foto`
+-- Constraints for table `aghniya_like_foto`
 --
 ALTER TABLE `aghniya_like_foto`
   ADD CONSTRAINT `fk_like_id` FOREIGN KEY (`aghniya_foto_id`) REFERENCES `aghniya_foto` (`aghniya_foto_id`),
   ADD CONSTRAINT `fk_userss_id` FOREIGN KEY (`aghniya_user_id`) REFERENCES `aghniya_user` (`aghniya_user_id`);
 
 --
--- Ketidakleluasaan untuk tabel `aghniya_notifikasi`
+-- Constraints for table `aghniya_notifikasi`
 --
 ALTER TABLE `aghniya_notifikasi`
   ADD CONSTRAINT `fk_foto_notification_id` FOREIGN KEY (`aghniya_foto_id`) REFERENCES `aghniya_foto` (`aghniya_foto_id`),
@@ -416,7 +472,7 @@ ALTER TABLE `aghniya_notifikasi`
   ADD CONSTRAINT `fk_users_notification_id` FOREIGN KEY (`aghniya_user_photo_id`) REFERENCES `aghniya_user` (`aghniya_user_id`);
 
 --
--- Ketidakleluasaan untuk tabel `aghniya_user`
+-- Constraints for table `aghniya_user`
 --
 ALTER TABLE `aghniya_user`
   ADD CONSTRAINT `fk_user_role` FOREIGN KEY (`aghniya_role_id`) REFERENCES `aghniya_role` (`aghniya_role_id`);

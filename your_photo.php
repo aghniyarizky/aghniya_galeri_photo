@@ -120,6 +120,7 @@ if (isset($_GET['filter'])) {
             </form>
         </div>
 
+        <?php if ($total_records > 0){ ?>
         <div class="flex flex-wrap gap-8 sm:gap-12 content-center justify-center my-14">
             <?php while($data = mysqli_fetch_array($sql)) { 
                 $foto = $data['aghniya_foto_id'];
@@ -211,9 +212,16 @@ if (isset($_GET['filter'])) {
                 Page 
                 <a href="your_photo.php?page=<?=$page?>"><?=$page?></a>                                                
                 from 
-                <a href="your_photo.php?page=<?=$total_pages?>"> <?=$total_pages?> </a>
+                <?php if ($total_records < 1){ ?>
+                    <a href="your_photo.php?page=<?=$total_pages?>"> <?=$total_pages+1?> </a>
+                <?php }else{ ?>
+                    <a href="your_photo.php?page=<?=$total_pages?>"> <?=$total_pages?> </a>
+                <?php } ?>
             </div> 
-        </div> 
+        </div>
+        <?php }else{ ?> 
+            <div class="text-center font-semibold text-normal text-gray-500 mt-5">You have 0 picture</div>
+        <?php } ?>
     </div>
     
 </div>

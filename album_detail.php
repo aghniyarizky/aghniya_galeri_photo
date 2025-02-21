@@ -173,7 +173,11 @@ if ($album_id) {
                     <a href="album_detail.php?album_id=<?=$album_id?>&page=<?=$currentPage?>"><?=$currentPage?></a>
 
                     from 
-                    <a href="album_detail.php?album_id=<?=$album_id?>&page=<?=$totalPages?>"> <?=$totalPages?> </a>
+                    <?php if (empty($dataArray)){ ?>
+                        <a href="album_detail.php?album_id=<?=$album_id?>&page=<?=$totalPages?>"> <?=$totalPages+1?> </a>
+                    <?php }else{ ?>
+                        <a href="album_detail.php?album_id=<?=$album_id?>&page=<?=$totalPages?>"> <?=$totalPages?> </a>
+                    <?php } ?>
                 </div>
             <?php } else { ?>
                 <div class="text-center font-semibold text-xl text-gray-500">Album Not Found</div>

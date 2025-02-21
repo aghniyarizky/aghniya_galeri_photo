@@ -103,7 +103,7 @@ if (mysqli_num_rows($sql) == 0 ){
             if ($change) {
                 echo "<script>
                     alert('Edit Photo Successfully!');
-                    location.href='edit_photo.php?photo_id=$photoid';
+                    location.href='photo_detail_user.php?photo_id=$photoid';
                 </script>";
             } else {
                 echo "<script>

@@ -20,6 +20,7 @@ $sql_album = mysqli_query($conn, "
 
 $total_data = mysqli_fetch_assoc($sql_album)['total_album'];
 $total_pages = ceil($total_data / $pict_per_page);
+// echo $total_data;
 
 $sql = mysqli_query($conn, "
     SELECT aghniya_album.*, COUNT(aghniya_foto.aghniya_foto_id) AS total_foto
@@ -43,6 +44,7 @@ $sql = mysqli_query($conn, "
     <link href="./src/output.css" rel="stylesheet">
 </head>
 <body>
+    <?php if ($total_data > 0){ ?>
     <div class="flex flex-wrap gap-8 items-center justify-center content-center mb-7">
     <?php while($data = mysqli_fetch_assoc($sql)) { 
         $album_id = $data['aghniya_album_id'];
@@ -115,6 +117,8 @@ $sql = mysqli_query($conn, "
             from 
             <a href="user_page.php?page=<?=$total_pages?>"> <?=$total_pages?> </a>
         </div>
-        
+    <?php }else{ ?>
+        <div class="flex text-normal border border-gray-300 rounded-lg px-4 py-2 mx-2 my-3 text-gray-500 bg-gray-100 break-words">You have 0 album</div>
+    <?php } ?>
 </body>
 </html>
