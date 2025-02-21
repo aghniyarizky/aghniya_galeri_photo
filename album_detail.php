@@ -148,6 +148,7 @@ if ($album_id) {
                             </a>
                         <?php } } ?>
                     </div>
+                    <?php if (!empty($dataArray)){ ?>
                     <div class="flex justify-center mt-2">
                         <div class="flex gap-1">
                             <a href="album_detail.php?album_id=<?=$album_id?>&page=<?= max(1, $currentPage - 1) ?>" 
@@ -167,18 +168,22 @@ if ($album_id) {
                                 </a>
                         </div>
                     </div>
-                </div>
-                <div class="flex gap-3 content-center justify-center my-5">
-                    Page 
-                    <a href="album_detail.php?album_id=<?=$album_id?>&page=<?=$currentPage?>"><?=$currentPage?></a>
-
-                    from 
-                    <?php if (empty($dataArray)){ ?>
-                        <a href="album_detail.php?album_id=<?=$album_id?>&page=<?=$totalPages?>"> <?=$totalPages+1?> </a>
-                    <?php }else{ ?>
-                        <a href="album_detail.php?album_id=<?=$album_id?>&page=<?=$totalPages?>"> <?=$totalPages?> </a>
                     <?php } ?>
                 </div>
+                <?php if (!empty($dataArray)){ ?>
+                    <div class="flex gap-3 content-center justify-center my-5">
+                        Page 
+                        <a href="album_detail.php?album_id=<?=$album_id?>&page=<?=$currentPage?>"><?=$currentPage?></a>
+
+                        from 
+                        <?php if (empty($dataArray)){ ?>
+                            <a href="album_detail.php?album_id=<?=$album_id?>&page=<?=$totalPages?>"> <?=$totalPages+1?> </a>
+                        <?php }else{ ?>
+                            <a href="album_detail.php?album_id=<?=$album_id?>&page=<?=$totalPages?>"> <?=$totalPages?> </a>
+                        <?php } ?>
+                    </div>
+                <?php } ?>
+                
             <?php } else { ?>
                 <div class="text-center font-semibold text-xl text-gray-500">Album Not Found</div>
             <?php } ?>
