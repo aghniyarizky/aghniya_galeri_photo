@@ -432,10 +432,24 @@ if (isset($_SESSION['aghniya_username'])) {
                 date_default_timezone_set('Asia/Jakarta');
                 $date = new DateTime();
                 
-                $formatter = new IntlDateFormatter('id_ID', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
-                $formatter->setPattern('dd MMMM yyyy');
+                $tanggal = $date->format('d') . ' ' . strftime('%B', $date->getTimestamp()) . ' ' . $date->format('Y');
                 
-                $tanggal = $formatter->format($date);
+                $months = [
+                    'January' => 'Januari',
+                    'February' => 'Februari',
+                    'March' => 'Maret',
+                    'April' => 'April',
+                    'May' => 'Mei',
+                    'June' => 'Juni',
+                    'July' => 'Juli',
+                    'August' => 'Agustus',
+                    'September' => 'September',
+                    'October' => 'Oktober',
+                    'November' => 'November',
+                    'December' => 'Desember',
+                ];
+                
+                $tanggal = str_replace(array_keys($months), array_values($months), $tanggal);
             ?>
             <div class="flex justify-end mt-5 mx-2">
                 <div class="w-1/3 mt-5">

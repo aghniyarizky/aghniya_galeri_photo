@@ -113,7 +113,7 @@ $sql = mysqli_query($conn, "
             Page
             <a href="user_page.php?page=<?=$page?>"><?=$page?></a>
             from 
-            <div class="user_page.php?page=<?=$total_pages?>"> <?=$total_pages?> </div>
+            <a href="user_page.php?page=<?=$total_pages?>"> <?=$total_pages?> </a>
         </div>
         
 </body>
