@@ -428,29 +428,31 @@ if (isset($_SESSION['aghniya_username'])) {
 
 
         <div class="">
-            <?php 
-                date_default_timezone_set('Asia/Jakarta');
-                $date = new DateTime();
-                
-                $tanggal = $date->format('d') . ' ' . strftime('%B', $date->getTimestamp()) . ' ' . $date->format('Y');
-                
-                $months = [
-                    'January' => 'Januari',
-                    'February' => 'Februari',
-                    'March' => 'Maret',
-                    'April' => 'April',
-                    'May' => 'Mei',
-                    'June' => 'Juni',
-                    'July' => 'Juli',
-                    'August' => 'Agustus',
-                    'September' => 'September',
-                    'October' => 'Oktober',
-                    'November' => 'November',
-                    'December' => 'Desember',
-                ];
-                
-                $tanggal = str_replace(array_keys($months), array_values($months), $tanggal);
-            ?>
+        <?php 
+            date_default_timezone_set('Asia/Jakarta'); 
+            $date = new DateTime(); 
+
+            $months = [
+                1 => 'Januari', 
+                2 => 'Februari', 
+                3 => 'Maret', 
+                4 => 'April', 
+                5 => 'Mei', 
+                6 => 'Juni', 
+                7 => 'Juli', 
+                8 => 'Agustus', 
+                9 => 'September', 
+                10 => 'Oktober', 
+                11 => 'November', 
+                12 => 'Desember'
+            ];
+
+            $day = $date->format('d');
+            $month = (int) $date->format('m'); 
+            $year = $date->format('Y');
+
+            $tanggal = $day . ' ' . $months[$month] . ' ' . $year;
+        ?>             
             <div class="flex justify-end mt-5 mx-2">
                 <div class="w-1/3 mt-5">
                     <div class="text-center">Cimahi, <?=$tanggal?></div>
