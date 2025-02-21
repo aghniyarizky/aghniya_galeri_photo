@@ -5,8 +5,8 @@ if (isset($_POST['comment_user'])) {
     $comment =  $_POST['comment_user'];
 
     $id_photo = $_POST['id_photo'];
-    $id_user = $_POST['id_user']; // Si B yang komen
-    $id_user_photo = $_POST['id_user_photo']; // Si A yang punya
+    $id_user = $_POST['id_user']; //  B yang komen
+    $id_user_photo = $_POST['id_user_photo']; //  A yang punya
     $direction_path = $_POST['direction_path'];
 
     $sql_comment = mysqli_query($conn, "INSERT INTO aghniya_komentar_foto VALUES(NULL, $id_photo, $id_user, '$comment', now())");

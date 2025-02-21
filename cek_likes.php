@@ -6,7 +6,7 @@ if(isset($_POST['likes'])){
     $likes = $_POST['likes'];
     $id_photo = $_POST['id_photo'];
     $id_user = $_POST['id_user'];
-    $id_user_photo = $_POST['id_user_photo']; // si A yang punya
+    $id_user_photo = $_POST['id_user_photo']; // A yang punya
     $direction_path = $_POST['direction_path'];
 
     $sql = mysqli_query($conn, "SELECT * FROM aghniya_like_foto WHERE aghniya_foto_id = $id_photo AND aghniya_user_id = $id_user");
