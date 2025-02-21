@@ -334,7 +334,7 @@ if (isset($_SESSION['aghniya_username'])) {
             if (choice) {
                 window.location.href = 'logout.php'; 
             } else {
-                alert('Logout dibatalkan!');
+                alert('Logout canceled!');
             }
         });
     </script>

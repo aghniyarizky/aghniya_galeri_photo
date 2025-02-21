@@ -96,10 +96,10 @@ $data = mysqli_fetch_assoc($sql);
     <?php } ?>
     <script>
         document.getElementById('deleteForm').addEventListener('submit', function(e) {
-            let choice = confirm('Are you sure you want to remove this album?');
+            let choice = confirm('Are you sure you want to remove this album? This would remove all pictures you have in this album!');
             if (!choice) {
                 e.preventDefault();
-                alert('Hapus Album dibatalkan!');
+                alert('Remove album canceled!');
             }
         });
     </script>

@@ -231,7 +231,7 @@ function timeAgo($timestamp) {
                             let choice = confirm('Are you sure you want to remove this picture?');
                             if (!choice) {
                                 e.preventDefault();
-                                alert('Hapus Foto dibatalkan!');
+                                alert('Remove photo canceled!');
                             }
                         });
                     </script>

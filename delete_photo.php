@@ -19,12 +19,12 @@ if (isset($_POST['trash'])){
 
         if ($sql) {
             echo "<script>
-            alert('Foto berhasil dihapus');
+            alert('Remove Photo Successfully!');
             location.href='your_photo.php';
             </script>";
         }else {
             echo "<script>
-            alert('Gagal menghapus foto');
+            alert('Failed Remove Photo!');
             location.href='your_photo.php';
             </script>";
         }

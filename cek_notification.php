@@ -11,7 +11,7 @@ if(isset($_POST['trash'])){
             </script>";
     }else{
         echo "<script>
-                alert('notifikasi gagal dihapus');
+                alert('Failed to Remove Notification!');
                 location.href='notification.php';
             </script>";
     }

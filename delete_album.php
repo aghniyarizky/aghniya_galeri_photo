@@ -17,12 +17,12 @@ if (isset($_POST['trash'])) {
 
     if ($deleteAlbum) {
         echo "<script>
-        alert('Album berhasil dihapus');
+        alert('Remove Album Successfully!');
         location.href='user_page.php';
         </script>";
     } else {
         echo "<script>
-        alert('Gagal menghapus album');
+        alert('Failed to Remove this Album');
         location.href='user_page.php';
         </script>";
     }

@@ -26,7 +26,7 @@ if (isset($_POST['comment_user'])) {
     } else {
         // $redirect_url = isset($_GET['photo_id']) ? "photo_detail.php?id_photo=$id_photo" : "photo_detail_user.php?photo_id=$id_photo";
         echo "<script>
-                alert('Gagal Komentar');
+                alert('Failed to Upload Your Comment!');
                 location.href='$direction_path';
             </script>";
     }
