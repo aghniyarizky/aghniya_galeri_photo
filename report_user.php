@@ -462,7 +462,7 @@ if (isset($_SESSION['aghniya_username'])) {
     </div>
     
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/Chart.min.js"></script>
 
 <!-- chart all album -->
     <script>
